@@ -178,6 +178,122 @@ main.container {
     font-weight: 600;
 }
 
+.student-list-card {
+    overflow: hidden;
+}
+
+.student-filters {
+    display: flex;
+    align-items: flex-end;
+    gap: 14px;
+    padding: 18px;
+    border-bottom: 1px solid #e8ecf2;
+    background: #fff;
+}
+
+.filter-search,
+.filter-course {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.filter-search {
+    flex: 1;
+    min-width: 180px;
+}
+
+.filter-course {
+    min-width: 190px;
+}
+
+.student-filters label {
+    color: #657187;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.student-filters input,
+.student-filters select {
+    min-height: 40px;
+    padding: 8px 10px;
+    border: 1px solid #cbd3df;
+    border-radius: 6px;
+    background: #fff;
+    color: #172033;
+    font: inherit;
+}
+
+.clear-filters {
+    padding: 10px 0;
+    font-size: 0.88rem;
+    white-space: nowrap;
+}
+
+.list-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 18px;
+    border-top: 1px solid #e8ecf2;
+}
+
+.result-count {
+    margin: 0;
+    color: #657187;
+    font-size: 0.88rem;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.page-link {
+    display: inline-flex;
+    min-width: 34px;
+    min-height: 34px;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 9px;
+    border: 1px solid #dce2eb;
+    border-radius: 5px;
+    color: #2457c5;
+    font-size: 0.86rem;
+}
+
+.page-link:hover {
+    background: #f3f6fc;
+    text-decoration: none;
+}
+
+.page-link.is-current {
+    border-color: #2457c5;
+    background: #2457c5;
+    color: #fff;
+    font-weight: 600;
+}
+
+.page-link.is-disabled {
+    color: #a0a9b8;
+}
+
+.seed-card {
+    padding: 24px;
+}
+
+.seed-card p {
+    margin-top: 0;
+    color: #657187;
+    line-height: 1.6;
+}
+
+.seed-card .cancel-link {
+    margin-left: 16px;
+}
+
 .student-details {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -366,6 +482,24 @@ main.container {
     .page-heading {
         align-items: flex-start;
         flex-direction: column;
+    }
+
+    .student-filters {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .filter-course {
+        min-width: 0;
+    }
+
+    .list-footer {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .pagination {
+        flex-wrap: wrap;
     }
 
     .form-card {
