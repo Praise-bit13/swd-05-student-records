@@ -5,22 +5,21 @@ declare(strict_types=1);
 require_once __DIR__ . '/src/helpers.php';
 require_once __DIR__ . '/src/Database.php';
 
-$idValue = $_GET['id'] ?? '';
-if (!is_string($idValue) || preg_match('/\A[1-9]\d*\z/', $idValue) !== 1) {
+$studentId = parseStudentId($_GET['id'] ?? null);
+if ($studentId === null) {
     http_response_code(404);
     $student = null;
 } else {
-    $studentId = (int) $idValue;
     $student = null;
 }
 
 $pageTitle = 'Edit student';
 $errors = [];
 $databaseUnavailable = false;
-$formAction = isset($studentId) ? 'edit.php?id=' . $studentId : '';
+$formAction = $studentId !== null ? 'edit.php?id=' . $studentId : '';
 $submitLabel = 'Save changes';
 
-if (isset($studentId)) {
+if ($studentId !== null) {
     try {
         $pdo = db();
         $select = $pdo->prepare(
@@ -37,11 +36,11 @@ if (isset($studentId)) {
     }
 }
 
-if (!$databaseUnavailable && isset($studentId) && $student === false) {
+if (!$databaseUnavailable && $studentId !== null && $student === false) {
     http_response_code(404);
 }
 
-if (!$databaseUnavailable && isset($studentId) && is_array($student) && $_SERVER['REQUEST_METHOD'] === 'POST') {
+if (!$databaseUnavailable && $studentId !== null && is_array($student) && $_SERVER['REQUEST_METHOD'] === 'POST') {
     foreach (['first_name', 'last_name', 'email', 'phone', 'course', 'enrolled_on'] as $field) {
         $student[$field] = is_string($_POST[$field] ?? null) ? trim($_POST[$field]) : '';
     }
@@ -96,7 +95,7 @@ if ($databaseUnavailable):
         <p><a href="index.php">Return to students</a></p>
     </section>
 <?php
-elseif (!isset($studentId) || !is_array($student)):
+elseif ($studentId === null || !is_array($student)):
 ?>
     <section class="card error-card">
         <h1>Student not found</h1>

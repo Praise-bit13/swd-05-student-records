@@ -178,6 +178,36 @@ main.container {
     font-weight: 600;
 }
 
+.student-details {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin: 0;
+}
+
+.student-details > div {
+    padding: 20px 24px;
+    border-bottom: 1px solid #edf0f5;
+}
+
+.student-details dt {
+    margin-bottom: 7px;
+    color: #657187;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.045em;
+    text-transform: uppercase;
+}
+
+.student-details dd {
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+.back-link {
+    display: inline-block;
+    margin: 20px 24px;
+}
+
 .actions {
     display: flex;
     align-items: center;
@@ -350,5 +380,9 @@ main.container {
     .student-table th,
     .student-table td {
         padding: 13px 14px;
+    }
+
+    .student-details {
+        grid-template-columns: 1fr;
     }
 }

@@ -63,7 +63,9 @@ else:
                         <?php foreach ($students as $student): ?>
                             <tr>
                                 <td class="student-name">
-                                    <?= e($student['first_name'] . ' ' . $student['last_name']) ?>
+                                    <a class="student-name" href="show.php?id=<?= e($student['id']) ?>">
+                                        <?= e($student['first_name'] . ' ' . $student['last_name']) ?>
+                                    </a>
                                 </td>
                                 <td><?= e($student['email']) ?></td>
                                 <td><?= e($student['course']) ?></td>
@@ -71,8 +73,9 @@ else:
                                 <td>
                                     <div class="actions">
                                         <a href="edit.php?id=<?= e($student['id']) ?>">Edit</a>
-                                        <form method="post" action="delete.php" onsubmit="return confirm('Delete this student record?');">
+                                        <form method="post" action="delete.php" onsubmit="return confirm(<?= e(json_encode('Delete ' . $student['first_name'] . ' ' . $student['last_name'] . '?', JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_TAG | JSON_HEX_AMP)) ?>);">
                                             <input type="hidden" name="id" value="<?= e($student['id']) ?>">
+                                            <input type="hidden" name="csrf_token" value="<?= e(csrfToken()) ?>">
                                             <button class="button button-danger" type="submit">Delete</button>
                                         </form>
                                     </div>
