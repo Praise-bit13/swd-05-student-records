@@ -38,7 +38,7 @@ else:
             <h1>Students</h1>
             <p>View and manage student records.</p>
         </div>
-        <a class="button" href="add.php">Add student</a>
+        <a class="button" href="create.php">Add student</a>
     </section>
 
     <section class="card" aria-label="Student records">

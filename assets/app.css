@@ -238,6 +238,79 @@ main.container {
     line-height: 1.6;
 }
 
+.form-card {
+    max-width: 760px;
+    padding: 26px;
+}
+
+.student-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.form-field {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.form-field label {
+    color: #354158;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.form-field input,
+.form-field select {
+    width: 100%;
+    min-height: 42px;
+    padding: 9px 11px;
+    border: 1px solid #cbd3df;
+    border-radius: 6px;
+    background: #fff;
+    color: #172033;
+    font: inherit;
+}
+
+.form-field input:focus,
+.form-field select:focus {
+    border-color: #2457c5;
+    outline: 3px solid rgb(36 87 197 / 15%);
+}
+
+.form-field [aria-invalid="true"] {
+    border-color: #b42318;
+}
+
+.field-error {
+    color: #a32118;
+    font-size: 0.82rem;
+}
+
+.form-error-summary {
+    grid-column: 1 / -1;
+    padding: 12px 14px;
+    border: 1px solid #f2c2bf;
+    border-radius: 6px;
+    background: #fff3f2;
+    color: #8e1b12;
+}
+
+.form-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding-top: 4px;
+}
+
+.cancel-link {
+    color: #657187;
+    font-size: 0.9rem;
+}
+
 .footer {
     border-top: 1px solid #e1e6ef;
     background: #fff;
@@ -263,6 +336,15 @@ main.container {
     .page-heading {
         align-items: flex-start;
         flex-direction: column;
+    }
+
+    .form-card {
+        padding: 20px;
+    }
+
+    .student-form {
+        grid-template-columns: 1fr;
+        gap: 16px;
     }
 
     .student-table th,
